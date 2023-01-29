@@ -20,11 +20,14 @@ class UserService(
     suspend fun updateUser(id: Int, updateRequest: UserUpdateRequest): UserResponse =
         userRepository.findById(id)
             ?.let {
-                it.copy(
-                    name = updateRequest.name ?: it.name,
-                    surname = updateRequest.name ?: it.surname,
+                userRepository.updateUser(
+                    it.copy(
+                        name = updateRequest.name ?: it.name,
+                        surname = updateRequest.surname ?: it.surname,
+                    )
                 )
             }
+            ?.let { userRepository.findById(id) }
             ?.toDto()
             ?: throw IllegalArgumentException("Cannot find user with id: $id")
 

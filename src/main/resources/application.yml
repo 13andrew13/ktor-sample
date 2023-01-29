@@ -1,8 +1,0 @@
-ktor:
-  application:
-    database:
-      host: "localhost:5432"
-      username: "postgres"
-      password: "password"
-      database: "postgres"
-      url: "jdbc:postgresql://localhost:5432/postgres"

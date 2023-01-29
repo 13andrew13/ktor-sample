@@ -30,6 +30,7 @@ class UserRepository {
             it[email] = user.email
             it[name] = user.name
             it[surname] = user.surname
+            it[password] = user.password
          }
             .resultedValues
             ?.map { it.toUser() }
@@ -49,6 +50,7 @@ class UserRepository {
         name = this[UserTable.name].toString(),
         surname = this[UserTable.surname].toString(),
         email = this[UserTable.email].toString(),
+        password = this[UserTable.password].toString()
     )
 
 
